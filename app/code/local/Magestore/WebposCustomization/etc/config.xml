@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+  ~ Magestore
+  ~
+  ~ NOTICE OF LICENSE
+  ~
+  ~ This source file is subject to the Magestore.com license that is
+  ~ available through the world-wide-web at this URL:
+  ~ http://www.magestore.com/license-agreement.html
+  ~
+  ~ DISCLAIMER
+  ~
+  ~ Do not edit or add to this file if you wish to upgrade this extension to newer
+  ~ version in the future.
+  ~
+  ~ @category    Magestore
+  ~ @package     Magestore_WebposCustomization
+  ~ @copyright   Copyright (c) 2016 Magestore (http://www.magestore.com/)
+  ~ @license     http://www.magestore.com/license-agreement.html
+  -->
+<config>
+    <modules>
+        <Magestore_WebposCustomization>
+            <version>1.0.0</version>
+        </Magestore_WebposCustomization>
+    </modules>
+    <frontend>
+        <routers>
+            <webposcustomization>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_WebposCustomization</module>
+                    <frontName>webposcustomization</frontName>
+                </args>
+            </webposcustomization>
+        </routers>
+        <layout>
+            <updates>
+                <webposcustomization>
+                    <file>webposcustomization.xml</file>
+                </webposcustomization>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <webposcustomization>
+                <class>Magestore_WebposCustomization_Model</class>
+                <resourceModel>Magestore_WebposCustomization_mysql4</resourceModel>
+            </webposcustomization>
+            <webposcustomization_mysql4>
+                <class>Magestore_WebposCustomization_Model_Mysql4</class>
+                <entities>
+                </entities>
+            </webposcustomization_mysql4>
+        </models>
+        <resources>
+            <webposcustomization_setup>
+                <setup>
+                    <module>Magestore_WebposCustomization</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </webposcustomization_setup>
+            <webposcustomization_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </webposcustomization_write>
+            <webposcustomization_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </webposcustomization_read>
+        </resources>
+        <blocks>
+            <webposcustomization>
+                <class>Magestore_WebposCustomization_Block</class>
+            </webposcustomization>
+        </blocks>
+        <helpers>
+            <webposcustomization>
+                <class>Magestore_WebposCustomization_Helper</class>
+            </webposcustomization>
+        </helpers>
+        <events>
+            
+        </events>
+    </global>
+    <default>
+    </default>
+</config>
+
