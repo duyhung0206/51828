@@ -1,0 +1,9 @@
+<script>
+    require([
+        'webposcustomization/model/customization'
+    ], function (CustomizationModel) {
+
+        CustomizationModel.initData(<?php echo Zend_Json::encode($this->getJsData()); ?>);
+
+    });
+</script>

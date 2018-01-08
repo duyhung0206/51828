@@ -24,7 +24,8 @@ define(
         'ko',
         'posComponent',
         'webposcustomization/model/customization',
-        'helper/general'
+        'helper/general',
+        'lib/bootstrap/bootstrap-switch'
     ],
     function ($, ko, Component, CustomizationModel, Helper) {
         "use strict";
@@ -32,8 +33,27 @@ define(
             defaults: {
                 template: 'webposcustomization/ui/giftvoucher/main'
             },
+            code: CustomizationModel.code,
+            amount: CustomizationModel.amount,
+            shipAble: CustomizationModel.shipAble,
+            status: CustomizationModel.status,
+            statusList: CustomizationModel.statusList,
+            taxClass: CustomizationModel.taxClass,
+            taxClasses: CustomizationModel.taxClasses,
             initialize: function(){
                 this._super();
+            },
+            setShipAble: function(data,event){
+                var shipAble = (event.target.checked)?true:false;
+                CustomizationModel.shipAble(shipAble);
+            },
+            afterRender: function () {
+                if($(".custom-gift-voucher-container .ios-ui-select").length <= 0){
+                    $('#custom_gift_voucher_shipable').iosCheckbox();
+                }
+            },
+            addToCart: function(){
+                CustomizationModel.addToCart();
             }
         });
     }

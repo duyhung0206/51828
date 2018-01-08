@@ -1,0 +1,61 @@
+<div class="wrap-account-container custom-gift-voucher-container">
+    <header class="o-header">
+        <nav class="o-header-nav">
+            <label class="title title-header-page" data-bind="i18n: 'Gift Voucher'"></label>
+        </nav>
+    </header>
+    <main class="main-account">
+        <div class="wrap-main-account">
+            <div class="panel panel-default">
+                <div class="panel-heading" data-bind="i18n:'Information'"></div>
+                <div class="fieldset panel-body">
+                    <div class="input-box required">
+                        <label data-bind="i18n:'Gift Card Code'"></label>
+                        <input type="text"
+                               class="input-text required-entry"
+                               onfocus="this.select()"
+                               data-bind="value:code">
+                    </div>
+                    <div class="input-box required">
+                        <label data-bind="i18n:'Amount'"></label>
+                        <input type="text"
+                               class="input-text required-entry"
+                               onfocus="this.select()"
+                               data-bind="value:amount, autoSelect:true">
+                    </div>
+                    <div class="input-box required">
+                        <label data-bind="i18n:'Status'"></label>
+                        <select class="selectpicker" data-bind="
+                            value: status,
+                            options: statusList,
+                            optionsText: function(item) {return item.label;},
+                            optionsValue: function(item) {return item.value;  }
+                            ">
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label data-bind="i18n:'Tax Class'"></label>
+                        <select class="selectpicker" data-bind="
+                            value: taxClass,
+                            options: taxClasses,
+                            optionsText:'tax_class_name',
+                            optionsValue: 'tax_class_id'
+                            ">
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label data-bind="text:__('Shippable')"></label>
+                        <div class="switch-box">
+                            <input id="custom_gift_voucher_shipable" type="checkbox" class="ios" data-bind="afterRender: afterRender, checked:shipAble,event:{change:setShipAble}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer-account">
+        <div class="action-button">
+            <button class="button btn-save-acc btn-cl-cfg-active" type="button" data-bind="i18n:'Add To Cart',click: addToCart"></button>
+        </div>
+    </footer>
+</div>

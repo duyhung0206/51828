@@ -31,7 +31,7 @@ define(
              */
             initialize: function () {
                 this._super();
-                this.apiCheckShippingUrl = "/webpos/checkout/checkShipping";
+                this.apiUrl = "/webpos/customization";
             },
             /**
              * Get API URL
@@ -40,17 +40,16 @@ define(
              */
             getApiUrl: function(key){
                 switch(key){
-                    case "apiCheckShippingUrl":
-                        return this.apiCheckShippingUrl;
+                    case "apiUrl":
+                        return this.apiUrl;
                 }
             },
             /**
-             * API to check shipping price - offline checkout
              * @param params
              * @param deferred
              */
-            checkShipping: function(params, deferred){
-                var apiUrl = this.getApiUrl("apiCheckShippingUrl");
+            send: function(params, deferred){
+                var apiUrl = this.getApiUrl("apiUrl");
                 this.callApi(apiUrl, params, deferred);
             }
         });

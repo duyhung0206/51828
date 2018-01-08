@@ -21,7 +21,7 @@
 <layout version="0.1.0">
     <webpos_index_index>
         <reference name="before_webpos_body_end">
-            <block type="webposcustomization/webposShipping" name="webposcustomization" as="webposcustomization" template="webposcustomization/webposShipping.phtml"/>
+            <block type="webposcustomization/webposCustomization" name="webposcustomization" as="webposcustomization" template="webposcustomization/webposcustomization.phtml"/>
         </reference>
         <reference name="webpos_head_second">
             <action method="addCss">

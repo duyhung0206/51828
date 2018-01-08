@@ -21,7 +21,7 @@
 <config>
     <modules>
         <Magestore_WebposCustomization>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Magestore_WebposCustomization>
     </modules>
     <frontend>
@@ -85,8 +85,23 @@
             </webposcustomization>
         </helpers>
         <events>
-            
+            <sales_order_place_after>
+                <observers>
+                    <webposcustomization_observers>
+                        <type>singleton</type>
+                        <class>webposcustomization/observer</class>
+                        <method>orderPlaceAfter</method>
+                    </webposcustomization_observers>
+                </observers>
+            </sales_order_place_after>
         </events>
+        <fieldsets>
+            <sales_convert_quote_item>
+                <is_custom_gift_voucher>
+                    <to_order_item>*</to_order_item>
+                </is_custom_gift_voucher>
+            </sales_convert_quote_item>
+        </fieldsets>
     </global>
     <default>
     </default>

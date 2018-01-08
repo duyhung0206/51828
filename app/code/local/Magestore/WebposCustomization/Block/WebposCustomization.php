@@ -24,5 +24,13 @@
  */
 class Magestore_WebposCustomization_Block_WebposCustomization extends Magestore_Webpos_Block_AbstractBlock
 {
+    public function getGiftVoucherStatusList(){
+        return Magestore_Giftvoucher_Model_Status::getOptions();
+    }
 
+    public function getJsData(){
+        return array(
+            'status_list' => $this->getGiftVoucherStatusList()
+        );
+    }
 }

@@ -28,6 +28,7 @@
             </erp>
             <depends>
                 <Magestore_Webpos />
+                <Magestore_Giftvoucher />
             </depends>
         </Magestore_WebposCustomization>
     </modules>
