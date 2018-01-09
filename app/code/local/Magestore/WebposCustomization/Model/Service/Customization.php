@@ -64,4 +64,23 @@ class Magestore_WebposCustomization_Model_Service_Customization extends Magestor
             }
         }
     }
+
+    /**
+     * @param $item
+     * @return bool
+     */
+    public function isNewCustomGiftVoucher($item){
+        $buyRequest = $item->getBuyRequest();
+        if($buyRequest){
+            $buyRequestData = $buyRequest->getData();
+            if (isset($buyRequestData['custom_gift_voucher_code'])) {
+                $code = $buyRequestData['custom_gift_voucher_code'];
+                $giftVoucher = Mage::getModel('giftvoucher/giftvoucher')->loadByCode($code);
+                if($giftVoucher->getId()){
+                    return $code;
+                }
+            }
+        }
+        return true;
+    }
 }

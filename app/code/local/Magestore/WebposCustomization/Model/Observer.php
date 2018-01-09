@@ -56,4 +56,26 @@ class Magestore_WebposCustomization_Model_Observer extends Magestore_Webpos_Mode
         }
     }
 
+    /**
+     * @param $observer
+     */
+    public function webposSaveCartAfter($observer) {
+        $quote = $observer->getEvent()->getData("quote");
+        if($quote && $this->_service){
+            $items = $quote->getAllVisibleItems();
+            if(!empty($items)){
+                foreach ($items as $item){
+                    if($item->getIsCustomGiftVoucher() == self::IS_CUSTOM_GIFT_VOUCHER){
+                        $isNew = $this->_service->isNewCustomGiftVoucher($item);
+                        if($isNew !== true){
+                            Mage::throwException(
+                                $this->getHelper()->__("The Gift Code \"%s\" has been existed", $isNew)
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
